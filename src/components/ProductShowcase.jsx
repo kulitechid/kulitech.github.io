@@ -9,7 +9,6 @@ import {
   ExternalLink, 
   MessageCircle, 
   CheckCircle,
-  Smartphone,
   ChevronRight
 } from "lucide-react";
 import { PRODUCTS, CONTACT_INFO } from "../data/content";
@@ -83,22 +82,6 @@ export default function ProductShowcase() {
                     <p className="mt-5 text-sm sm:text-base text-slate-300 leading-relaxed">
                       {product.description}
                     </p>
-
-                    {/* Interactive Mockup / Metric Highlight Box */}
-                    <div className="mt-6 p-4 rounded-2xl bg-black/40 border border-white/5">
-                      <div className="text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider flex items-center gap-2">
-                        <Smartphone className="w-3.5 h-3.5 text-cyan-400" />
-                        <span>Key Metrics &amp; Performance</span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2 text-center">
-                        {Object.entries(product.metrics).map(([key, val]) => (
-                          <div key={key} className="bg-white/[0.03] p-2 rounded-xl border border-white/5">
-                            <div className="text-xs sm:text-sm font-bold text-white">{val}</div>
-                            <div className="text-[10px] text-slate-400 capitalize">{key}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
 
                     {/* Key Highlights list */}
                     <div className="mt-6 space-y-2.5">
