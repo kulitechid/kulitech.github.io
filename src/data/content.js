@@ -5,7 +5,7 @@ export const PRODUCTS = [
     subtitle: "Smart Travel Companion & Panduan Wisata Pulau Lombok",
     category: "Travel & Smart Tourism App",
     badge: "In-House Product",
-    status: "Active / Published",
+    status: "Ongoing Development",
     description:
       "Lombok Explorer adalah aplikasi panduan wisata dan perencana perjalanan cerdas (smart travel companion) yang dirancang khusus untuk mengeksplorasi keindahan Pulau Lombok secara komprehensif, mulai dari wisata pantai eksotis, pendakian Gunung Rinjani, budaya tradisi Sasak, hingga kuliner lokal autentik.",
     highlights: [
@@ -26,7 +26,7 @@ export const PRODUCTS = [
     subtitle: "Aplikasi Pendamping Digital Perawatan Bayi Prematur & BBLR",
     category: "Maternal & Infant Health Tech",
     badge: "In-House Product",
-    status: "Active / Deployed",
+    status: "Ongoing Development",
     description:
       "Kanguru Siaga adalah aplikasi pendamping digital ramah keluarga yang dirancang khusus untuk mendampingi orang tua dan tenaga kesehatan dalam merawat Bayi Berat Lahir Rendah (BBLR) dan bayi prematur di rumah. Melalui fitur timer kontak kulit Perawatan Metode Kanguru (PMK), grafik pertumbuhan terstandar internasional (Fenton & Buku KIA), alarm pengingat nutrisi/ASI teratur, serta panduan deteksi tanda bahaya, Kanguru Siaga hadir untuk memastikan si kecil tumbuh sehat, hangat, dan optimal dalam dekapan penuh cinta keluarga.",
     highlights: [

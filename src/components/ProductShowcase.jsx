@@ -57,8 +57,8 @@ export default function ProductShowcase() {
                       <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${product.badgeColor}`}>
                         {product.badge}
                       </span>
-                      <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      <span className="text-xs font-mono text-amber-300/90 flex items-center gap-1.5 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                         {product.status}
                       </span>
                     </div>
