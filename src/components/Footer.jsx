@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px]">
                 <div className="w-full h-full bg-[#0d111b] rounded-[10px] flex items-center justify-center">
-                  <img src="/logo.svg" alt="KuliTech" className="w-5 h-5 object-contain" />
+                  <img src="./logo.svg" alt="KuliTech" className="w-5 h-5 object-contain" />
                 </div>
               </div>
               <span className="font-extrabold text-xl text-white tracking-tight">
