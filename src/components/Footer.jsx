@@ -109,11 +109,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                 <div className="font-semibold text-white">Lombok Explorer</div>
-                <div className="text-xs text-slate-400">Panduan Wisata &amp; Eksplorasi Pulau Lombok</div>
+                <div className="text-xs text-slate-400">Smart Travel Companion &amp; Panduan Wisata Lombok</div>
               </li>
               <li className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                 <div className="font-semibold text-white">Kanguru Siaga</div>
-                <div className="text-xs text-slate-400">Sistem Tanggap Darurat &amp; Komunitas Siaga</div>
+                <div className="text-xs text-slate-400">Pendamping Perawatan Bayi Prematur &amp; BBLR</div>
               </li>
             </ul>
           </div>

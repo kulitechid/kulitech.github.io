@@ -3,7 +3,7 @@ import {
   Sparkles, 
   MapPin, 
   Compass, 
-  ShieldAlert, 
+  HeartPulse, 
   BellRing, 
   Activity, 
   ExternalLink, 
@@ -66,7 +66,7 @@ export default function ProductShowcase() {
                     {/* Title & Subtitle */}
                     <div className="flex items-start gap-4">
                       <div className={`p-3.5 rounded-2xl ${isLombok ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20" : "bg-amber-500/10 text-amber-400 border border-amber-500/20"}`}>
-                        {isLombok ? <Compass className="w-7 h-7" /> : <ShieldAlert className="w-7 h-7" />}
+                        {isLombok ? <Compass className="w-7 h-7" /> : <HeartPulse className="w-7 h-7" />}
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
