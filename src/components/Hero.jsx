@@ -107,10 +107,6 @@ const webProject = {
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span>Garansi Bebas Bug</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                 <span>Ramah UMKM &amp; Individu</span>
               </div>
             </div>

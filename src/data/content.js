@@ -121,8 +121,8 @@ export const WORKFLOW = [
   },
   {
     step: "04",
-    title: "Pengujian, Rilis & Garansi",
-    desc: "Uji coba menyeluruh di berbagai tipe layar, peluncuran ke publik, plus garansi pendampingan pasca rilis.",
+    title: "Pengujian & Peluncuran Resmi",
+    desc: "Uji coba menyeluruh di berbagai tipe layar hingga aplikasi dan website siap digunakan publik.",
   },
 ];
 
@@ -140,8 +140,8 @@ export const FAQS = [
     a: "Kami menyediakan pendampingan penuh untuk proses pendaftaran akun Google Play Console, persiapan materi grafis, penyesuaian privasi, hingga aplikasi Anda resmi lolos review dan bisa diunduh oleh publik.",
   },
   {
-    q: "Apakah ada garansi jika ditemukan bug setelah aplikasi selesai?",
-    a: "Ya! Setiap proyek di KuliTech mendapatkan masa garansi bebas bug (biasanya 30 hingga 60 hari tergantung skala proyek) serta pelatihan singkat cara mengoperasikan sistem.",
+    q: "Apakah disediakan pelatihan cara mengoperasikan sistem?",
+    a: "Ya! Kami memberikan sesi panduan pengoperasian sistem agar Anda atau tim dapat mengelola fitur aplikasi dan website dengan mandiri dan lancar.",
   },
   {
     q: "Bagaimana cara melakukan pemesanan atau konsultasi proyek?",

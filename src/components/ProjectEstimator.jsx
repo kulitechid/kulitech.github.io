@@ -296,11 +296,11 @@ Apakah bisa kita diskusikan rincian dan penawaran biayanya? Terima kasih!`;
               <div className="p-4 rounded-2xl bg-black/40 border border-white/5 mb-6 text-xs text-slate-300 space-y-2">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Garansi pemeliharaan &amp; bebas bug gratis pasca rilis</span>
+                  <span>Source code 100% milik Anda tanpa biaya tersembunyi</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Source code 100% milik Anda tanpa biaya tersembunyi</span>
+                  <span>Pendampingan pengoperasian sistem hingga siap digunakan</span>
                 </div>
               </div>
 
