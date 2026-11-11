@@ -107,6 +107,22 @@ export default function ProductShowcase() {
                         </span>
                       ))}
                     </div>
+
+                    {/* Legal Docs Links (if available) */}
+                    {product.legalLinks?.length > 0 && (
+                      <div className="mt-5 flex flex-wrap items-center gap-2.5">
+                        {product.legalLinks.map((doc) => (
+                          <a
+                            key={doc.href}
+                            href={doc.href}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-500/25 hover:bg-amber-500/20 hover:border-amber-400/40 transition-colors"
+                          >
+                            <span>{doc.label}</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Bottom CTA */}

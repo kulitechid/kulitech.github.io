@@ -10,10 +10,13 @@ function GithubIcon({ className = "w-4 h-4" }) {
   );
 }
 
-export default function Footer() {
+const CURRENT_YEAR = new Date().getFullYear();
+
+export default function Footer({ isHome = true }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  const sectionPrefix = isHome ? "" : "/";
 
   return (
     <footer className="bg-[#05070c] border-t border-white/10 pt-16 pb-12 relative overflow-hidden text-slate-400">
@@ -26,7 +29,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px]">
                 <div className="w-full h-full bg-[#0d111b] rounded-[10px] flex items-center justify-center">
-                  <img src="./logo.svg" alt="KuliTech" className="w-5 h-5 object-contain" />
+                  <img src="/logo.svg" alt="KuliTech" className="w-5 h-5 object-contain" />
                 </div>
               </div>
               <span className="font-extrabold text-xl text-white tracking-tight">
@@ -74,27 +77,27 @@ export default function Footer() {
             </div>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#products" className="hover:text-cyan-400 transition-colors">
+                <a href={`${sectionPrefix}#products`} className="hover:text-cyan-400 transition-colors">
                   Produk In-House
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
+                <a href={`${sectionPrefix}#services`} className="hover:text-cyan-400 transition-colors">
                   Layanan Pembuatan Aplikasi
                 </a>
               </li>
               <li>
-                <a href="#estimator" className="hover:text-cyan-400 transition-colors">
+                <a href={`${sectionPrefix}#estimator`} className="hover:text-cyan-400 transition-colors">
                   Kalkulator Estimasi Proyek
                 </a>
               </li>
               <li>
-                <a href="#workflow" className="hover:text-cyan-400 transition-colors">
+                <a href={`${sectionPrefix}#workflow`} className="hover:text-cyan-400 transition-colors">
                   Alur &amp; Metodologi Kerja
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-cyan-400 transition-colors">
+                <a href={`${sectionPrefix}#faq`} className="hover:text-cyan-400 transition-colors">
                   Pertanyaan Umum (FAQ)
                 </a>
               </li>
@@ -114,6 +117,21 @@ export default function Footer() {
               <li className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
                 <div className="font-semibold text-white">Kanguru Siaga</div>
                 <div className="text-xs text-slate-400">Pendamping Perawatan Bayi Prematur &amp; BBLR</div>
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono">
+                  <a
+                    href="/kanguru-siaga/privacy-policy"
+                    className="text-amber-400/90 hover:text-amber-300 hover:underline transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                  <span className="text-slate-600">•</span>
+                  <a
+                    href="/kanguru-siaga/term-of-use"
+                    className="text-amber-400/90 hover:text-amber-300 hover:underline transition-colors"
+                  >
+                    Terms of Use
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -123,7 +141,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-1">
-            <span>© {new Date().getFullYear()} KuliTech. Crafted with passion &amp; solid foundations.</span>
+            <span suppressHydrationWarning>© {CURRENT_YEAR} KuliTech. Crafted with passion &amp; solid foundations.</span>
           </div>
 
           <button

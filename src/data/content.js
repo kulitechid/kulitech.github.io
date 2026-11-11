@@ -40,6 +40,10 @@ export const PRODUCTS = [
     borderColor: "hover:border-amber-500/40",
     badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/30",
     mockupType: "health",
+    legalLinks: [
+      { label: "Kebijakan Privasi", href: "/kanguru-siaga/privacy-policy" },
+      { label: "Ketentuan Penggunaan", href: "/kanguru-siaga/term-of-use" },
+    ],
   },
 ];
 

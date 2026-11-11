@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight, MessageCircle } from "lucide-react";
 import { CONTACT_INFO } from "../data/content";
 
-export default function Navbar() {
+export default function Navbar({ isHome = true }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -14,12 +14,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const sectionPrefix = isHome ? "" : "/";
+
   const navLinks = [
-    { name: "Produk", href: "#products" },
-    { name: "Layanan", href: "#services" },
-    { name: "Estimator Biaya", href: "#estimator" },
-    { name: "Cara Kerja", href: "#workflow" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Produk", href: `${sectionPrefix}#products` },
+    { name: "Layanan", href: `${sectionPrefix}#services` },
+    { name: "Estimator Biaya", href: `${sectionPrefix}#estimator` },
+    { name: "Cara Kerja", href: `${sectionPrefix}#workflow` },
+    { name: "FAQ", href: `${sectionPrefix}#faq` },
   ];
 
   return (
@@ -33,10 +35,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo & Status */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href={isHome ? "#" : "/"} className="flex items-center gap-3 group">
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
               <div className="w-full h-full bg-[#0d111b] rounded-[10px] flex items-center justify-center overflow-hidden">
-                <img src="./logo.svg" alt="KuliTech Logo" className="w-6 h-6 object-contain" />
+                <img src="/logo.svg" alt="KuliTech Logo" className="w-6 h-6 object-contain" />
               </div>
             </div>
             <div className="flex flex-col">
