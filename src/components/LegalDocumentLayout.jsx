@@ -286,7 +286,7 @@ export default function LegalDocumentLayout({ documentData }) {
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
       <div className="print:hidden">
-        <Navbar isHome={false} />
+        <Navbar isHome={false} titleText="KANGURU SIAGA" />
       </div>
 
       <main className="flex-1 relative pt-28 sm:pt-32 pb-20 overflow-hidden print:pt-4 print:pb-8">
