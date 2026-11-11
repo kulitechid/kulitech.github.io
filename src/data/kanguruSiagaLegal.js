@@ -8,7 +8,7 @@ export const KANGURU_SIAGA_META = {
     "Sesuai Undang-Undang Republik Indonesia No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP), Standar Etika Medis Perinatologi, serta Kebijakan Data Safety, Health Apps, dan Alarm Google Play Console.",
   category: "Kesehatan & Kebugaran Maternal & Neonatal (Maternal & Infant Health)",
   jurisdiction: "Republik Indonesia",
-  emails: ["suport@kulitech.my.id"],
+  emails: ["support@kulitech.my.id"],
   privacyPolicyUrl: "/kanguru-siaga/privacy-policy",
   termsOfUseUrl: "/kanguru-siaga/term-of-use",
 };
@@ -1513,7 +1513,7 @@ export const PRIVACY_POLICY_DATA = {
             {
               content: [
                 "Kirimkan email ke ",
-                { mailto: "suport@kulitech.my.id" },
+                { mailto: "support@kulitech.my.id" },
                 " dengan subjek: ",
                 { code: "Permohonan Penghapusan Data Cloud - Kanguru Siaga" },
                 ".",
