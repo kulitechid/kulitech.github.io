@@ -9,6 +9,11 @@ const distDir = resolve(rootDir, "dist");
 
 const pages = [
   {
+    modulePath: "/src/App.jsx",
+    distHtmlPath: resolve(distDir, "index.html"),
+    cleanHtmlPath: null,
+  },
+  {
     modulePath: "/src/pages/PrivacyPolicyPage.jsx",
     distHtmlPath: resolve(distDir, "kanguru-siaga/privacy-policy/index.html"),
     cleanHtmlPath: resolve(distDir, "kanguru-siaga/privacy-policy.html"),
@@ -46,8 +51,12 @@ async function prerender() {
       );
 
       await writeFile(page.distHtmlPath, finalHtml, "utf8");
-      await copyFile(page.distHtmlPath, page.cleanHtmlPath);
-      console.log(`Prerendered: ${page.cleanHtmlPath}`);
+      if (page.cleanHtmlPath) {
+        await copyFile(page.distHtmlPath, page.cleanHtmlPath);
+        console.log(`Prerendered: ${page.cleanHtmlPath}`);
+      } else {
+        console.log(`Prerendered: ${page.distHtmlPath}`);
+      }
     }
   } finally {
     await vite.close();
