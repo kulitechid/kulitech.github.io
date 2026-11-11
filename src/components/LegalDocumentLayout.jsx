@@ -118,6 +118,28 @@ function ContactDetailsCard() {
         </div>
         <div>
           <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+            Tautan Publik Kebijakan Privasi
+          </div>
+          <a
+            href={KANGURU_SIAGA_META.privacyPolicyUrl}
+            className="mt-1 inline-block text-xs font-mono text-amber-300 hover:underline break-all"
+          >
+            https://kulitech.my.id{KANGURU_SIAGA_META.privacyPolicyUrl}
+          </a>
+        </div>
+        <div>
+          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+            Tautan Publik Ketentuan Penggunaan
+          </div>
+          <a
+            href={KANGURU_SIAGA_META.termsOfUseUrl}
+            className="mt-1 inline-block text-xs font-mono text-amber-300 hover:underline break-all"
+          >
+            https://kulitech.my.id{KANGURU_SIAGA_META.termsOfUseUrl}
+          </a>
+        </div>
+        <div>
+          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
             Kategori Aplikasi
           </div>
           <div className="mt-1 text-slate-200">{KANGURU_SIAGA_META.category}</div>

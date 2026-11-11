@@ -679,23 +679,6 @@ export const PRIVACY_POLICY_DATA = {
               ],
             ],
             [
-              [{ bold: "Data Analitik Aplikasi (Firebase Analytics)" }],
-              [
-                { italic: "App Instance ID" },
-                ", event standar penggunaan layar/interaksi fitur, informasi perangkat (model, OS Android), perkiraan lokasi umum berbasis IP oleh layanan Google, serta ",
-                { italic: "Advertising ID" },
-                " bawaan perangkat (kecuali dibatasi pengguna di setelan Android).",
-              ],
-              [
-                "Diproses oleh SDK ",
-                { bold: "Google Firebase Analytics" },
-                ".",
-              ],
-              [
-                "Memahami kestabilan adopsi fitur secara agregat dan mengoptimalkan kinerja Aplikasi tanpa tujuan penayangan iklan.",
-              ],
-            ],
-            [
               [{ bold: "Data Diagnostik & Log Error (Firebase Crashlytics)" }],
               [
                 "Model perangkat, versi OS, versi aplikasi, ",
@@ -708,17 +691,7 @@ export const PRIVACY_POLICY_DATA = {
                 " saat terjadi error atau peristiwa sinkronisasi terkait crash.",
               ],
               [
-                "Penelusuran kesalahan teknis dan peningkatan keandalan Aplikasi. (",
-                {
-                  italic:
-                    "Catatan transparansi: breadcrumb log status offline pada ",
-                },
-                { code: "BabyFirestoreSyncManager" },
-                {
-                  italic:
-                    " dapat mencatat nama tampilan profil bayi apabila crash terjadi tepat setelah log tersebut",
-                },
-                ").",
+                "Penelusuran kesalahan teknis dan peningkatan keandalan Aplikasi tanpa mencatat nama bayi pada log breadcrumb.",
               ],
             ],
           ],
@@ -953,11 +926,9 @@ export const PRIVACY_POLICY_DATA = {
             },
             {
               content: [
-                { bold: "Keandalan Sistem & Analitik Produk: " },
-                "Memantau rasio crash, diagnosa kegagalan sinkronisasi (",
-                { italic: "Crashlytics" },
-                "), serta performa pemakaian fitur aplikasi (",
-                { italic: "Firebase Analytics" },
+                { bold: "Keandalan Sistem & Pemecahan Masalah: " },
+                "Memantau rasio crash serta diagnosa kegagalan sinkronisasi atau kesalahan teknis (",
+                { italic: "Firebase Crashlytics" },
                 ").",
               ],
             },
@@ -974,7 +945,7 @@ export const PRIVACY_POLICY_DATA = {
     {
       id: "bebas-penjualan-data-pihak-ketiga",
       number: "5",
-      title: "Kebijakan Bebas Penjualan Data, Layanan Analitik, & Pihak Ketiga",
+      title: "Kebijakan Bebas Penjualan Data, Non-Pelacakan Iklan, & Pihak Ketiga",
       blocks: [
         {
           type: "list",
@@ -982,10 +953,10 @@ export const PRIVACY_POLICY_DATA = {
           items: [
             {
               content: [
-                { bold: "Tidak Ada Penayangan Iklan Komersial: " },
-                "Aplikasi Kanguru Siaga tidak menampilkan iklan pihak ketiga (",
+                { bold: "Tidak Ada Penayangan Iklan & Pelacakan Komersial: " },
+                "Aplikasi Kanguru Siaga bebas dari jaringan iklan pihak ketiga (",
                 { italic: "ad networks" },
-                ") dan tidak pernah menjual data pengguna maupun data anak kepada pengiklan atau broker data.",
+                "), tidak melakukan pelacakan untuk periklanan tertarget, dan tidak pernah menjual atau memperdagangkan data pengguna maupun data anak kepada pengiklan atau broker data.",
               ],
             },
             {
@@ -999,26 +970,6 @@ export const PRIVACY_POLICY_DATA = {
                     content: [
                       { bold: "Google Firebase — Cloud Firestore: " },
                       "Penyimpanan profil onboarding bayi saat pendaftaran awal online, didukung infrastruktur Google Cloud berstandar keamanan global (ISO 27001 / SOC 2).",
-                    ],
-                  },
-                  {
-                    content: [
-                      { bold: "Google Firebase — Firebase Analytics: " },
-                      "SDK analitik standar untuk memantau metrik penggunaan dan stabilitas aplikasi. Secara bawaan SDK ini mengumpulkan ",
-                      { italic: "App Instance ID" },
-                      ", event penggunaan aplikasi, info perangkat/OS, perkiraan lokasi kasar berbasis IP, serta ",
-                      { italic: "Advertising ID" },
-                      " perangkat Android. Kanguru Siaga ",
-                      { bold: "tidak" },
-                      " memanfaatkan ",
-                      { italic: "Advertising ID" },
-                      " untuk periklanan tertarget. Pengguna dapat menonaktifkan atau menyetel ulang ",
-                      { italic: "Advertising ID" },
-                      " kapan saja lewat ",
-                      { bold: "Pengaturan Android > Google > Iklan (" },
-                      { bold: "Ads", italic: true },
-                      { bold: ")" },
-                      ".",
                     ],
                   },
                   {
@@ -1131,7 +1082,7 @@ export const PRIVACY_POLICY_DATA = {
             [
               [{ code: "INTERNET" }],
               [
-                "Menghubungkan Aplikasi ke Google Firebase (Firestore, Analytics, Crashlytics) serta memanggil ",
+                "Menghubungkan Aplikasi ke Google Firebase (Cloud Firestore & Crashlytics) serta memanggil ",
                 { bold: "FentonGrowth.ca API" },
                 " saat memuat grafik/Z-score online.",
               ],
@@ -1158,29 +1109,18 @@ export const PRIVACY_POLICY_DATA = {
             [
               [{ code: "SCHEDULE_EXACT_ALARM" }],
               [
-                "Menjadwalkan alarm pengingat waktu pemberian nutrisi dan jadwal PMK agar dipicu tepat waktu sesuai jadwal yang disetel pengasuh.",
+                "Menjadwalkan alarm pengingat pemberian nutrisi enteral (ASI/OGT/NGT berinterval 2–3 jam), target sesi PMK, dan jadwal skrining kritis secara tepat waktu apabila izin ",
+                { italic: "Alarms & reminders" },
+                " diaktifkan oleh pengguna (pada Android 14+ otomatis beralih ke penjadwalan standar hemat daya jika tidak diaktifkan).",
               ],
-              ["Esensial untuk akurasi jadwal perawatan"],
-            ],
-            [
-              [
-                { code: "USE_EXACT_ALARM" },
-                " ",
-                { italic: "(Izin Sensitif Kebijakan Alarm Google Play)" },
-              ],
-              [
-                "Memastikan pengingat pemberian nutrisi enteral (ASI/OGT/NGT berinterval 2–3 jam pada bayi BBLR berisiko hipoglikemia/dehidrasi), target sesi PMK, dan alarm skrining kritis tetap berbunyi presisi di menit yang ditentukan tanpa tertunda oleh mode hemat daya/Doze Android.",
-              ],
-              [
-                "Digunakan murni untuk alarm klinis perawatan & nutrisi bayi terjadwal",
-              ],
+              ["Opsional / Esensial untuk ketepatan jadwal perawatan"],
             ],
             [
               [{ code: "RECEIVE_BOOT_COMPLETED" }],
               [
                 "Memulihkan dan menjadwalkan ulang seluruh alarm PMK, alarm ASI, dan alarm skrining secara otomatis setelah perangkat dinyalakan ulang (",
                 { italic: "reboot" },
-                ") atau aplikasi diperbarui.",
+                "), aplikasi diperbarui, atau izin alarm presisi diaktifkan.",
               ],
               ["Otomatis oleh sistem demi keandalan alarm"],
             ],
@@ -1393,9 +1333,7 @@ export const PRIVACY_POLICY_DATA = {
             {
               content: [
                 { bold: "Hak Menarik Persetujuan: " },
-                "Anda dapat mencabut izin notifikasi/alarm di Setelan Aplikasi Android, mereset/membatasi ",
-                { italic: "Advertising ID" },
-                " pada setelan Google Android, atau berhenti menggunakan Aplikasi kapan saja.",
+                "Anda dapat mencabut izin notifikasi atau alarm kapan saja melalui Setelan Aplikasi Android, atau berhenti menggunakan Aplikasi serta menghapus data sesuai ketentuan Pasal 10.",
               ],
             },
           ],
@@ -1475,15 +1413,11 @@ export const PRIVACY_POLICY_DATA = {
             },
             {
               content: [
-                { bold: "Data Diagnostik & Analitik Firebase: " },
-                "Log error/crash pada ",
+                { bold: "Data Diagnostik Firebase Crashlytics: " },
+                "Log error dan laporan crash pada ",
                 { bold: "Firebase Crashlytics" },
                 " tersimpan mengikuti siklus retensi standar ",
                 { bold: "90 hari" },
-                ", sedangkan data peristiwa agregat ",
-                { bold: "Firebase Analytics" },
-                " mengikuti batas retensi layanan Google Firebase maksimal ",
-                { bold: "14 bulan" },
                 " sebelum kedaluwarsa otomatis.",
               ],
             },
