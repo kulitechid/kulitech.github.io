@@ -37,8 +37,8 @@ export default function Navbar({ isHome = true, titleText = "" }) {
           {/* Brand Logo & Status */}
           <a href={isHome ? "#" : "/"} className="flex items-center gap-3 group">
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
-              <div className="w-full h-full bg-[#0d111b] rounded-[10px] flex items-center justify-center overflow-hidden">
-                <img src="/logo.svg" alt="KuliTech Logo" className="w-6 h-6 object-contain" />
+              <div className="w-full h-full bg-[#0d111b] rounded-[10px] flex items-center justify-center overflow-hidden p-1">
+                <img src="/logo.png" alt="KuliTech Logo" className="w-full h-full object-contain" />
               </div>
             </div>
             <div className="flex flex-col">
