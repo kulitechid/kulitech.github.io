@@ -9,6 +9,12 @@ function cleanLegalRouteMiddleware() {
     ['/kanguru-siaga/privacy-policy/', '/kanguru-siaga/privacy-policy/index.html'],
     ['/kanguru-siaga/term-of-use', '/kanguru-siaga/term-of-use/index.html'],
     ['/kanguru-siaga/term-of-use/', '/kanguru-siaga/term-of-use/index.html'],
+    ['/nippia', '/nippia/index.html'],
+    ['/nippia/', '/nippia/index.html'],
+    ['/nippia/privacy-policy', '/nippia/privacy-policy/index.html'],
+    ['/nippia/privacy-policy/', '/nippia/privacy-policy/index.html'],
+    ['/nippia/terms', '/nippia/terms/index.html'],
+    ['/nippia/terms/', '/nippia/terms/index.html'],
   ])
 
   const attachMiddleware = (middlewares) => {
@@ -47,6 +53,9 @@ export default defineConfig({
         main: resolve(import.meta.dirname, 'index.html'),
         privacyPolicy: resolve(import.meta.dirname, 'kanguru-siaga/privacy-policy/index.html'),
         termOfUse: resolve(import.meta.dirname, 'kanguru-siaga/term-of-use/index.html'),
+        nippia: resolve(import.meta.dirname, 'nippia/index.html'),
+        nippiaPrivacyPolicy: resolve(import.meta.dirname, 'nippia/privacy-policy/index.html'),
+        nippiaTerms: resolve(import.meta.dirname, 'nippia/terms/index.html'),
       },
     },
   },

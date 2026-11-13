@@ -1,0 +1,6 @@
+# app-ads.txt for KuliTech (https://kulitech.my.id)
+# App: Nippia – Latihan Soal CPNS & CAT (id.my.kulitech.nippia)
+#
+# Ganti pub-0000000000000000 dengan Google AdMob Publisher ID resmi Anda
+# dari AdMob Console -> Settings -> Account Information.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

@@ -23,6 +23,21 @@ const pages = [
     distHtmlPath: resolve(distDir, "kanguru-siaga/term-of-use/index.html"),
     cleanHtmlPath: resolve(distDir, "kanguru-siaga/term-of-use.html"),
   },
+  {
+    modulePath: "/src/pages/NippiaLandingPage.jsx",
+    distHtmlPath: resolve(distDir, "nippia/index.html"),
+    cleanHtmlPath: resolve(distDir, "nippia.html"),
+  },
+  {
+    modulePath: "/src/pages/NippiaPrivacyPolicyPage.jsx",
+    distHtmlPath: resolve(distDir, "nippia/privacy-policy/index.html"),
+    cleanHtmlPath: resolve(distDir, "nippia/privacy-policy.html"),
+  },
+  {
+    modulePath: "/src/pages/NippiaTermsPage.jsx",
+    distHtmlPath: resolve(distDir, "nippia/terms/index.html"),
+    cleanHtmlPath: resolve(distDir, "nippia/terms.html"),
+  },
 ];
 
 async function prerender() {

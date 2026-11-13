@@ -79,7 +79,7 @@ function renderInlineSegments(segments) {
   });
 }
 
-function ContactDetailsCard() {
+function ContactDetailsCard({ meta }) {
   return (
     <div className="mt-4 rounded-2xl bg-[#070a12] border border-white/10 p-5 sm:p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
@@ -88,7 +88,7 @@ function ContactDetailsCard() {
             Nama Aplikasi
           </div>
           <div className="mt-1 font-semibold text-white">
-            {KANGURU_SIAGA_META.appName}
+            {meta.appName}
           </div>
         </div>
         <div>
@@ -96,15 +96,25 @@ function ContactDetailsCard() {
             Pengembang (Akun Google Play Console)
           </div>
           <div className="mt-1 font-semibold text-white">
-            {KANGURU_SIAGA_META.developer}
+            {meta.developer}
           </div>
         </div>
+        {meta.packageName && (
+          <div className="sm:col-span-2">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+              Package Name (Android)
+            </div>
+            <div className="mt-1 font-mono text-xs sm:text-sm text-cyan-300">
+              {meta.packageName}
+            </div>
+          </div>
+        )}
         <div className="sm:col-span-2">
           <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
             Email Dukungan &amp; Pelindungan Data
           </div>
           <div className="mt-1.5 flex flex-wrap items-center gap-2.5">
-            {KANGURU_SIAGA_META.emails.map((email) => (
+            {meta.emails.map((email) => (
               <a
                 key={email}
                 href={`mailto:${email}`}
@@ -121,10 +131,10 @@ function ContactDetailsCard() {
             Tautan Publik Kebijakan Privasi
           </div>
           <a
-            href={KANGURU_SIAGA_META.privacyPolicyUrl}
+            href={meta.privacyPolicyUrl}
             className="mt-1 inline-block text-xs font-mono text-amber-300 hover:underline break-all"
           >
-            https://kulitech.my.id{KANGURU_SIAGA_META.privacyPolicyUrl}
+            https://kulitech.my.id{meta.privacyPolicyUrl}
           </a>
         </div>
         <div>
@@ -132,24 +142,24 @@ function ContactDetailsCard() {
             Tautan Publik Ketentuan Penggunaan
           </div>
           <a
-            href={KANGURU_SIAGA_META.termsOfUseUrl}
+            href={meta.termsOfUseUrl}
             className="mt-1 inline-block text-xs font-mono text-amber-300 hover:underline break-all"
           >
-            https://kulitech.my.id{KANGURU_SIAGA_META.termsOfUseUrl}
+            https://kulitech.my.id{meta.termsOfUseUrl}
           </a>
         </div>
         <div>
           <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
             Kategori Aplikasi
           </div>
-          <div className="mt-1 text-slate-200">{KANGURU_SIAGA_META.category}</div>
+          <div className="mt-1 text-slate-200">{meta.category}</div>
         </div>
         <div>
           <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
             Wilayah Hukum
           </div>
           <div className="mt-1 text-slate-200">
-            {KANGURU_SIAGA_META.jurisdiction}
+            {meta.jurisdiction}
           </div>
         </div>
       </div>
@@ -177,7 +187,7 @@ function NestedList({ list }) {
   );
 }
 
-function SectionBlock({ block }) {
+function SectionBlock({ block, meta }) {
   if (block.type === "subheading") {
     return (
       <h3 className="pt-2 text-sm sm:text-base font-bold text-amber-200 tracking-tight">
@@ -289,15 +299,17 @@ function SectionBlock({ block }) {
   }
 
   if (block.type === "contactCard") {
-    return <ContactDetailsCard />;
+    return <ContactDetailsCard meta={meta} />;
   }
 
   return null;
 }
 
-export default function LegalDocumentLayout({ documentData }) {
+export default function LegalDocumentLayout({ documentData, meta = KANGURU_SIAGA_META }) {
   const isPrivacy = documentData.id === "privacy-policy";
   const DocIcon = isPrivacy ? ShieldCheck : FileText;
+  const navTitle = meta.navTitle || meta.appName.toUpperCase();
+  const termsLabel = meta.termsLabel || "Terms of Use";
 
   const handlePrint = () => {
     if (typeof window !== "undefined") {
@@ -308,7 +320,7 @@ export default function LegalDocumentLayout({ documentData }) {
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
       <div className="print:hidden">
-        <Navbar isHome={false} titleText="KANGURU SIAGA" />
+        <Navbar isHome={false} titleText={navTitle} />
       </div>
 
       <main className="flex-1 relative pt-28 sm:pt-32 pb-20 overflow-hidden print:pt-4 print:pb-8">
@@ -333,17 +345,26 @@ export default function LegalDocumentLayout({ documentData }) {
                 <span>KuliTech</span>
               </a>
               <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-              <span className="text-slate-300">Kanguru Siaga</span>
+              {meta.productUrl ? (
+                <a
+                  href={meta.productUrl}
+                  className="text-slate-300 hover:text-cyan-400 transition-colors"
+                >
+                  {meta.appName}
+                </a>
+              ) : (
+                <span className="text-slate-300">{meta.appName}</span>
+              )}
               <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
               <span className="text-amber-300 font-medium">
-                {isPrivacy ? "Privacy Policy" : "Terms of Use"}
+                {isPrivacy ? "Privacy Policy" : termsLabel}
               </span>
             </nav>
 
             {/* Companion Page Switcher */}
             <div className="inline-flex p-1 rounded-xl bg-[#0c101c] border border-white/10 self-start md:self-auto">
               <a
-                href={KANGURU_SIAGA_META.privacyPolicyUrl}
+                href={meta.privacyPolicyUrl}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   isPrivacy
                     ? "bg-gradient-to-r from-amber-400 to-rose-400 text-slate-950 font-semibold shadow-sm"
@@ -353,14 +374,14 @@ export default function LegalDocumentLayout({ documentData }) {
                 Privacy Policy
               </a>
               <a
-                href={KANGURU_SIAGA_META.termsOfUseUrl}
+                href={meta.termsOfUseUrl}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   !isPrivacy
                     ? "bg-gradient-to-r from-amber-400 to-rose-400 text-slate-950 font-semibold shadow-sm"
                     : "text-slate-300 hover:text-white hover:bg-white/5"
                 }`}
               >
-                Terms of Use
+                {termsLabel}
               </a>
             </div>
           </div>
@@ -408,7 +429,7 @@ export default function LegalDocumentLayout({ documentData }) {
                     <span>Aplikasi &amp; Pengembang</span>
                   </div>
                   <div className="mt-1.5 text-sm font-semibold text-white">
-                    {KANGURU_SIAGA_META.appName} — {KANGURU_SIAGA_META.developer}
+                    {meta.appName} — {meta.developer}
                   </div>
                 </div>
 
@@ -418,7 +439,7 @@ export default function LegalDocumentLayout({ documentData }) {
                     <span>Tanggal Berlaku</span>
                   </div>
                   <div className="mt-1.5 text-sm font-semibold text-white">
-                    {KANGURU_SIAGA_META.effectiveDate}
+                    {meta.effectiveDate}
                   </div>
                 </div>
 
@@ -428,13 +449,13 @@ export default function LegalDocumentLayout({ documentData }) {
                     <span>Versi &amp; Email Resmi</span>
                   </div>
                   <div className="mt-1.5 text-sm font-semibold text-white font-mono">
-                    v{KANGURU_SIAGA_META.version}
+                    v{meta.version}
                   </div>
                   <a
-                    href={`mailto:${KANGURU_SIAGA_META.emails[0]}`}
+                    href={`mailto:${meta.emails[0]}`}
                     className="mt-0.5 inline-block text-xs font-mono text-amber-300 hover:underline"
                   >
-                    {KANGURU_SIAGA_META.emails[0]}
+                    {meta.emails[0]}
                   </a>
                 </div>
 
@@ -444,7 +465,7 @@ export default function LegalDocumentLayout({ documentData }) {
                     <span>Status Kepatuhan</span>
                   </div>
                   <div className="mt-1.5 text-xs font-medium text-slate-200 leading-snug">
-                    {KANGURU_SIAGA_META.compliance}
+                    {meta.compliance}
                   </div>
                 </div>
               </div>
@@ -486,7 +507,7 @@ export default function LegalDocumentLayout({ documentData }) {
                   Dokumen Terkait
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                  Ketentuan Penggunaan dan Kebijakan Privasi Kanguru Siaga merupakan satu kesatuan yang saling melengkapi.
+                  Ketentuan Penggunaan dan Kebijakan Privasi {meta.appName} merupakan satu kesatuan yang saling melengkapi.
                 </p>
                 <a
                   href={documentData.companionLink.href}
@@ -530,7 +551,7 @@ export default function LegalDocumentLayout({ documentData }) {
 
                   <div className="space-y-4">
                     {section.blocks.map((block, bIdx) => (
-                      <SectionBlock key={bIdx} block={block} />
+                      <SectionBlock key={bIdx} block={block} meta={meta} />
                     ))}
                   </div>
                 </section>
