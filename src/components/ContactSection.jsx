@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MessageCircle, Mail, MapPin, Send, CheckCircle2, ArrowUpRight } from "lucide-react";
+import { MessageCircle, Mail, Send, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { CONTACT_INFO } from "../data/content";
 
 function GithubIcon({ className = "w-6 h-6" }) {
@@ -128,12 +128,18 @@ Catatan: ${formData.message || "-"}`;
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">
+                  <label
+                    htmlFor="contact-name"
+                    className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider"
+                  >
                     Nama Anda / Nama Usaha
                   </label>
                   <input
+                    id="contact-name"
+                    name="name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Contoh: Pak Budi / Toko Maju Jaya"
@@ -142,10 +148,15 @@ Catatan: ${formData.message || "-"}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">
+                  <label
+                    htmlFor="contact-needs"
+                    className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider"
+                  >
                     Kategori Kebutuhan
                   </label>
                   <select
+                    id="contact-needs"
+                    name="needs"
                     value={formData.needs}
                     onChange={(e) => setFormData({ ...formData, needs: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-[#0e1424] border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-all"
@@ -159,10 +170,15 @@ Catatan: ${formData.message || "-"}`;
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">
+                  <label
+                    htmlFor="contact-message"
+                    className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider"
+                  >
                     Ceritakan Singkat Rencana Anda
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -173,7 +189,7 @@ Catatan: ${formData.message || "-"}`;
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all text-sm shadow-lg shadow-cyan-500/20"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all text-sm shadow-lg shadow-cyan-500/20 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Kirim &amp; Hubungkan ke WhatsApp</span>

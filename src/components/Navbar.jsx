@@ -38,7 +38,15 @@ export default function Navbar({ isHome = true, titleText = "" }) {
           <a href={isHome ? "#" : "/"} className="flex items-center gap-3 group">
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
               <div className="w-full h-full bg-[#0d111b] rounded-[10px] flex items-center justify-center overflow-hidden p-1">
-                <img src="/logo.png" alt="KuliTech Logo" className="w-full h-full object-contain" />
+                <img
+                  src="/logo.png"
+                  alt="KuliTech Logo"
+                  width="40"
+                  height="40"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
             <div className="flex flex-col">
@@ -94,9 +102,12 @@ export default function Navbar({ isHome = true, titleText = "" }) {
 
               {/* Mobile Menu Toggle Button */}
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
+                className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer"
                 aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav-menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-cyan-400" />}
               </button>
@@ -107,7 +118,12 @@ export default function Navbar({ isHome = true, titleText = "" }) {
 
       {/* Mobile Drawer */}
       {!titleText && mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0e18]/95 border-b border-white/10 px-4 pt-3 pb-6 mt-3 backdrop-blur-xl animate-fadeIn">
+        <div
+          id="mobile-nav-menu"
+          role="region"
+          aria-label="Menu Navigasi Mobile"
+          className="md:hidden bg-[#0a0e18]/95 border-b border-white/10 px-4 pt-3 pb-6 mt-3 backdrop-blur-xl animate-fadeIn"
+        >
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a

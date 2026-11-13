@@ -1,5 +1,5 @@
 import React from "react";
-import { GitBranch, Compass, Code2, Rocket, ArrowRight } from "lucide-react";
+import { GitBranch, Compass, Code2, Rocket } from "lucide-react";
 import { WORKFLOW } from "../data/content";
 
 export default function Workflow() {

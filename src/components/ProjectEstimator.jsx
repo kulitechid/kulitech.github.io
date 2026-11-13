@@ -7,7 +7,6 @@ import {
   Check, 
   Sparkles, 
   MessageCircle, 
-  ArrowRight,
   ShieldCheck,
   Clock,
   Send

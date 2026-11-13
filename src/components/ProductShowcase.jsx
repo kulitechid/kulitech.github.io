@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
   Sparkles, 
-  MapPin, 
   Compass, 
   HeartPulse, 
-  BellRing, 
-  Activity, 
   ExternalLink, 
   MessageCircle, 
   CheckCircle,
@@ -14,8 +11,6 @@ import {
 import { PRODUCTS, CONTACT_INFO } from "../data/content";
 
 export default function ProductShowcase() {
-  const [selectedProduct, setSelectedProduct] = useState(PRODUCTS[0].id);
-
   return (
     <section id="products" className="py-24 relative overflow-hidden border-t border-white/5">
       {/* Background subtle light */}

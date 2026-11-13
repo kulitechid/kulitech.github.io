@@ -1,5 +1,5 @@
 import React from "react";
-import { Hammer, ShieldCheck, Zap, HeartHandshake, Code, Award } from "lucide-react";
+import { Hammer, ShieldCheck, Zap, HeartHandshake, Award } from "lucide-react";
 
 export default function WhyUs() {
   const points = [

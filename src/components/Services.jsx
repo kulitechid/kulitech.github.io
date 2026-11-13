@@ -1,6 +1,6 @@
 import React from "react";
 import { Smartphone, Globe, Cpu, Check, ArrowRight } from "lucide-react";
-import { SERVICES, CONTACT_INFO } from "../data/content";
+import { SERVICES } from "../data/content";
 
 export default function Services() {
   const iconMap = {
