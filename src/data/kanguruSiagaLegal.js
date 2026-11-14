@@ -2,10 +2,10 @@ export const KANGURU_SIAGA_META = {
   appName: "Kanguru Siaga",
   developer: "KuliTech (Tim Pengembang Kanguru Siaga)",
   publisher: "KuliTech",
-  effectiveDate: "11 November 2026",
-  version: "1.1",
+  effectiveDate: "14 November 2026",
+  version: "1.2",
   compliance:
-    "Sesuai Undang-Undang Republik Indonesia No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP), Standar Etika Medis Perinatologi, serta Kebijakan Data Safety, Health Apps, dan Alarm Google Play Console.",
+    "Sesuai Undang-Undang Republik Indonesia No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP), Standar Etika Medis Perinatologi, serta Kebijakan Data Safety, Health Apps, Foreground Service, dan Alarm Google Play Console.",
   category: "Kesehatan & Kebugaran Maternal & Neonatal (Maternal & Infant Health)",
   jurisdiction: "Republik Indonesia",
   emails: ["support@kulitech.my.id"],
@@ -247,22 +247,38 @@ export const TERMS_OF_USE_DATA = {
             },
             {
               content: [
-                { bold: "Timer & Pencatatan Sesi PMK: " },
+                { bold: "Timer & Alarm Estafet Sesi PMK (Mendesak / Urgent): " },
                 "Penggunaan pengatur waktu (",
                 { italic: "timer" },
-                ") kontinu/intermiten dan input sesi manual untuk menghitung akumulasi jam dekapan harian beserta rekapitulasi mingguan.",
+                ") kontinu/intermiten dan input sesi manual untuk menghitung akumulasi jam dekapan harian. Dilengkapi sistem pengingat 3 jadwal estafet harian (Pagi, Siang, dan Malam) dengan alarm audio bersuara khusus berulang (",
+                { italic: "custom looping ringtone" },
+                "), kontrol interaktif notifikasi untuk ",
+                { bold: '"Matikan"' },
+                " atau ",
+                { bold: '"Tunda 10 Menit"' },
+                " (",
+                { italic: "snooze" },
+                "), serta perlindungan henti otomatis (",
+                { italic: "auto-stop" },
+                " 5 menit) guna menghemat daya baterai.",
               ],
             },
             {
               content: [
-                { bold: "Grafik Pertumbuhan Fenton: " },
-                "Plotting data antropometri ke dalam grafik standar internasional berbasis Usia Pascamenstruasi (PMA 22–50 minggu), baik melalui data referensi lokal maupun sinkronisasi grafik/Z-score resmi FentonGrowth.ca.",
+                { bold: "Grafik Pertumbuhan Fenton & Pengingat Mingguan (Rutin): " },
+                "Plotting data antropometri ke dalam kurva standar internasional berbasis Usia Pascamenstruasi (PMA 22–50 minggu), baik melalui data referensi lokal maupun sinkronisasi grafik/Z-score resmi FentonGrowth.ca, disertai opsi pengingat mingguan berkala (interval 7 hari) untuk memantau pertumbuhan bayi secara disiplin.",
               ],
             },
             {
               content: [
-                { bold: "Jadwal & Alarm Pemberian ASI: " },
-                "Pengingat audio-getar interval nutrisi rutin setiap 2–3 jam (termasuk bagi bayi dengan selang OGT/NGT).",
+                { bold: "Jadwal & Alarm Pemberian ASI (Mendesak / Urgent): " },
+                "Pengingat nutrisi enteral terstruktur (12 jadwal harian tetap dengan interval 2 jam, termasuk bagi bayi dengan selang OGT/NGT) menggunakan alarm bersuara khusus berulang (",
+                { italic: "custom looping ringtone" },
+                ") dan tombol kontrol langsung ",
+                { bold: '"Matikan"' },
+                " atau ",
+                { bold: '"Tunda 10 Menit"' },
+                ".",
               ],
             },
             {
@@ -273,9 +289,36 @@ export const TERMS_OF_USE_DATA = {
             },
             {
               content: [
-                { bold: "Penapisan & Lembar Hasil Skrining Prematur: " },
-                "Pencatatan jadwal pengingat alarm untuk 4 skrining wajib IDAI/Kemenkes (USG Kepala, Retinopati Prematuritas/ROP, Pendengaran OAE/BERA, dan Fungsi Tiroid) maupun skrining spesialis tambahan kustom, lengkap dengan catatan temuan medis dan lampiran berkas di penyimpanan lokal perangkat.",
+                { bold: "Penapisan & Lembar Hasil Skrining Prematur (Rutin): " },
+                "Pencatatan jadwal pengingat untuk 4 penapisan klinis wajib satu kali jalan / non-berulang (USG Kepala, Retinopati Prematuritas/ROP, Pendengaran OAE/BERA, dan Fungsi Tiroid) maupun skrining spesialis kustom, lengkap dengan catatan temuan medis dan lampiran berkas di penyimpanan lokal perangkat.",
               ],
+            },
+            {
+              content: [
+                { bold: "Sistem Pemulihan Pengingat Terlewat (" },
+                { bold: "Catch-Up Mechanism", italic: true },
+                { bold: "): " },
+                "Mekanisme cerdas terpadu di mana sistem hanya mendaftarkan 1 alarm aktif terdekat (",
+                { italic: "Sequential Single Next-Alarm" },
+                ") untuk menghemat baterai. Apabila perangkat mati atau tertidur lama sehingga jadwal terlewat:",
+              ],
+              subList: {
+                ordered: false,
+                items: [
+                  {
+                    content: [
+                      "Pengingat mendesak (PMK & ASI) yang terlewat ≤ 30 menit akan memunculkan notifikasi informatif tanpa alarm audio keras yang mengagetkan dan langsung memajukan slot ke hari berikutnya; jika terlewat > 30 menit akan dimajukan secara hening ke slot aktif terdekat.",
+                    ],
+                  },
+                  {
+                    content: [
+                      "Pengingat rutin (Skrining & Fenton) akan memunculkan notifikasi ",
+                      { bold: '"Pengingat Tertunda"' },
+                      " agar pengasuh dapat segera melakukan evaluasi atau menjadwalkan ulang kontrol ke fasilitas kesehatan.",
+                    ],
+                  },
+                ],
+              },
             },
           ],
         },
@@ -632,14 +675,18 @@ export const PRIVACY_POLICY_DATA = {
               [
                 "Waktu mulai/selesai kontak ",
                 { italic: "skin-to-skin" },
-                ", durasi sesi, target harian PMK, jadwal pengingat PMK, dan jadwal alarm minum ASI/OGT/NGT.",
+                ", durasi sesi, target harian PMK, 3 jadwal pengingat PMK harian, 12 jadwal alarm minum ASI/OGT/NGT, jadwal penapisan skrining klinis, jadwal pengingat mingguan Fenton, status keaktifan jadwal, serta antrean waktu picu alarm berikutnya (",
+                { code: "nextTriggerMillis" },
+                ") pada tabel Room ",
+                { code: "reminder_schedules" },
+                ".",
               ],
               [
                 { bold: "100% Lokal di perangkat" },
                 " (Room SQLite & DataStore). Tidak dikirim ke Cloud Firestore.",
               ],
               [
-                "Menghitung capaian target harian PMK, grafik mingguan, dan menjadwalkan alarm pengingat tepat waktu.",
+                "Menghitung capaian target harian PMK, grafik mingguan, serta mengeksekusi arsitektur penjadwalan alarm tunggal berantai secara tepat waktu dan hemat daya.",
               ],
             ],
             [
@@ -725,7 +772,7 @@ export const PRIVACY_POLICY_DATA = {
                   {
                     content: [
                       "Menggunakan database ",
-                      { bold: "Room (SQLite)" },
+                      { bold: "Room (SQLite v12)" },
                       ", ",
                       { bold: "DataStore Preferences" },
                       ", serta direktori penyimpanan internal privat ",
@@ -748,7 +795,9 @@ export const PRIVACY_POLICY_DATA = {
                       items: [
                         {
                           content: [
-                            "Seluruh log sesi harian PMK, statistik, dan pengaturan alarm PMK maupun nutrisi ASI/OGT/NGT;",
+                            "Seluruh log sesi harian PMK, statistik, antrean jadwal pengingat Room (",
+                            { code: "reminder_schedules" },
+                            "), alarm PMK, alarm nutrisi ASI/OGT/NGT, pengingat skrining klinis, dan pengingat mingguan Fenton;",
                           ],
                         },
                         {
@@ -1102,27 +1151,72 @@ export const PRIVACY_POLICY_DATA = {
             [
               [{ code: "POST_NOTIFICATIONS" }],
               [
-                "Menampilkan notifikasi timer sesi PMK yang sedang berjalan, pengingat jadwal minum ASI, serta pengingat jadwal skrining prematur.",
+                "Menampilkan notifikasi timer sesi PMK yang sedang berjalan, pengingat alarm mendesak (PMK & ASI), pengingat rutin penapisan klinis & grafik Fenton, serta notifikasi informatif jadwal terlewat.",
               ],
               ["Opsional / Dapat dimatikan di Pengaturan"],
             ],
             [
               [{ code: "SCHEDULE_EXACT_ALARM" }],
               [
-                "Menjadwalkan alarm pengingat pemberian nutrisi enteral (ASI/OGT/NGT berinterval 2–3 jam), target sesi PMK, dan jadwal skrining kritis secara tepat waktu apabila izin ",
-                { italic: "Alarms & reminders" },
-                " diaktifkan oleh pengguna (pada Android 14+ otomatis beralih ke penjadwalan standar hemat daya jika tidak diaktifkan).",
+                "Menjadwalkan alarm waktu presisi untuk pengingat penting/mendesak (3 jadwal estafet PMK dan 12 jadwal minum ASI berinterval 2 jam) menggunakan arsitektur ",
+                { italic: "Sequential Single Next-Alarm" },
+                " (hanya mendaftarkan 1 jadwal aktif terdekat ke sistem) yang hemat baterai. Aplikasi memeriksa ",
+                { code: "canScheduleExactAlarms()" },
+                " dan menyediakan ",
+                { italic: "graceful fallback" },
+                " ke penjadwalan hemat daya (",
+                { code: "setAndAllowWhileIdle()" },
+                ") bila izin tidak aktif. Aplikasi secara ketat ",
+                { bold: "TIDAK" },
+                " menggunakan izin agresif ",
+                { code: "USE_EXACT_ALARM" },
+                ".",
               ],
-              ["Opsional / Esensial untuk ketepatan jadwal perawatan"],
+              [
+                "Opsional / Esensial untuk ketepatan jadwal perawatan bayi prematur",
+              ],
             ],
             [
               [{ code: "RECEIVE_BOOT_COMPLETED" }],
               [
-                "Memulihkan dan menjadwalkan ulang seluruh alarm PMK, alarm ASI, dan alarm skrining secara otomatis setelah perangkat dinyalakan ulang (",
+                "Memulihkan dan menjadwalkan ulang 1 alarm berikutnya secara otomatis setelah perangkat dinyalakan ulang (",
                 { italic: "reboot" },
-                "), aplikasi diperbarui, atau izin alarm presisi diaktifkan.",
+                "), aplikasi diperbarui, atau setelah perubahan waktu/zona waktu sistem (",
+                { code: "TIME_SET" },
+                ", ",
+                { code: "TIMEZONE_CHANGED" },
+                ").",
               ],
               ["Otomatis oleh sistem demi keandalan alarm"],
+            ],
+            [
+              [{ code: "FOREGROUND_SERVICE" }],
+              [
+                "Menjalankan layanan latar depan (",
+                { code: "AlarmSoundService" },
+                ") saat jadwal alarm mendesak (PMK & ASI) berbunyi, sehingga pengingat audio dapat berbunyi andal dengan notifikasi kontrol interaktif meskipun aplikasi sedang tertutup atau layar ponsel terkunci.",
+              ],
+              ["Otomatis saat alarm mendesak aktif"],
+            ],
+            [
+              [{ code: "FOREGROUND_SERVICE_MEDIA_PLAYBACK" }],
+              [
+                "Menentukan jenis spesifik layanan latar depan untuk pemutaran audio alarm (",
+                { code: "mediaPlayback" },
+                ") sesuai ketentuan kebijakan Google Play Android 14+ (API 34). Layanan ini hanya aktif selama alarm berdering dan otomatis berhenti setelah pengguna menekan \"Matikan\", \"Tunda 10 Menit\", atau batas waktu aman (5 menit) tercapai.",
+              ],
+              ["Kepatuhan Google Play Android 14+ (API 34)"],
+            ],
+            [
+              [{ code: "WAKE_LOCK" }],
+              [
+                "Menjaga prosesor perangkat tetap aktif sementara (",
+                { italic: "partial wake lock" },
+                ") selama alarm bersuara agar pemutaran nada pengingat nutrisi dan PMK tidak terputus secara mendadak oleh manajemen daya sistem saat layar padam. Memiliki batas waktu aman otomatis (",
+                { italic: "timeout" },
+                ").",
+              ],
+              ["Otomatis saat alarm berbunyi"],
             ],
             [
               [{ code: "VIBRATE" }],
