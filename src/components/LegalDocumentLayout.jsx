@@ -339,6 +339,8 @@ export default function LegalDocumentLayout({ documentData, meta = KANGURU_SIAGA
             >
               <a
                 href="/"
+                rel="home"
+                title="Halaman Utama KuliTech"
                 className="inline-flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />

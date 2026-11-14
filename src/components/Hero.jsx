@@ -81,13 +81,16 @@ const webProject = {
             {/* Top pill badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs sm:text-sm text-cyan-300 mb-6 backdrop-blur-md hover:border-cyan-500/40 transition-colors">
               <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
-              <span className="font-medium">Software Studio & App Builder</span>
+              <span className="font-bold text-white tracking-wide">KuliTech</span>
               <span className="text-white/30">•</span>
-              <span className="text-slate-300">Android & Web Specialist</span>
+              <span className="font-medium">Software Studio &amp; App Builder</span>
+              <span className="text-white/30 hidden sm:inline">•</span>
+              <span className="text-slate-300 hidden sm:inline">Android &amp; Web Specialist</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+              <span className="sr-only">KuliTech — </span>
               Bangun Aplikasi &amp; Website{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
                 Tangguh dari Nol.
